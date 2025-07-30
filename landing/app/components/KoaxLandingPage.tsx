@@ -359,8 +359,8 @@ const KoaxLandingPage = () => {
             </h2>
             <div className="w-16 h-px bg-gray-700 mx-auto mb-12"></div>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
-              Ready to discuss your needs? Let's explore how we can help you
-              succeed.
+              Ready to discuss your needs? Let&apos;s explore how we can help
+              you succeed.
             </p>
           </div>
 

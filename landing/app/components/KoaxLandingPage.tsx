@@ -10,6 +10,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import { Hero } from "./Hero-mobile";
+import { TextHoverEffect } from "./ui/text-hover-effect";
+import { Services } from "./Services";
+import { HoverBorderGradient } from "./ui/hover=border-gradient";
 
 const KoaxLandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,9 +89,9 @@ const KoaxLandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <div className="text-2xl font-light text-white tracking-wider">
+              <Link href="/" className="text-2xl font-light text-white tracking-wider">
                 KOAX
-              </div>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -105,12 +109,12 @@ const KoaxLandingPage = () => {
                 >
                   About
                 </a>
-                <a
+                {/* <a
                   href="#services"
                   className="text-gray-400 hover:text-white text-sm font-light transition-all duration-500 tracking-wide"
                 >
                   Services
-                </a>
+                </a> */}
                 <a
                   href="#contact"
                   className="text-gray-400 hover:text-white text-sm font-light transition-all duration-500 tracking-wide"
@@ -134,9 +138,8 @@ const KoaxLandingPage = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden transition-all duration-500 ease-in-out ${
-            isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-          } overflow-hidden`}
+          className={`md:hidden transition-all duration-500 ease-in-out ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+            } overflow-hidden`}
         >
           <div className="bg-black/95 backdrop-blur-xl px-4 py-6 space-y-4">
             <a
@@ -151,12 +154,12 @@ const KoaxLandingPage = () => {
             >
               About
             </a>
-            <a
+            {/* <a
               href="#services"
               className="block text-gray-400 hover:text-white transition-colors duration-300 text-sm font-light tracking-wide"
             >
               Services
-            </a>
+            </a> */}
             <a
               href="#contact"
               className="block text-gray-400 hover:text-white transition-colors duration-300 text-sm font-light tracking-wide"
@@ -168,39 +171,49 @@ const KoaxLandingPage = () => {
       </nav>
 
       {/* Hero Section */}
+      {/* <Hero /> */}
+
       <section
         id="home"
         className="relative pt-20 bg-black overflow-hidden min-h-screen flex items-center"
       >
         {/* Minimal Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black to-black" />
+        <div className="absolute inset-0 bg-black" />
 
         {/* Background Image */}
         <div
           className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: "url('/bg-koax.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+        // style={{
+        //   backgroundImage: "url('/bg-koax.png')",
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        // }}
         />
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center animate-fade-in-up">
-            <h1 className="text-7xl md:text-9xl font-extralight text-white mb-8 leading-none tracking-tight">
+            {/* <h1 className="text-7xl md:text-9xl font-extralight text-white mb-8 leading-none tracking-tight">
               KOAX
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-400 mb-4 font-light tracking-wide">
+            </h1> */}
+            <Hero />
+            <TextHoverEffect text="KOAX" />
+            <p className="text-xl md:text-2xl text-gray-300 mb-2 font-light tracking-wide">
               Multi-Industry Solutions
             </p>
-            <p className="text-base text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-base text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
               Innovating across industries with our diverse portfolio—from tech
               and pet care to education and real estate.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="group px-8 py-4 bg-white text-black font-light tracking-wide hover:bg-gray-100 transition-all duration-500 ease-out transform hover:scale-105">
+            <div className="flex flex-col items-center sm:flex-row gap-6 justify-center">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+
+              >
+
                 <Link
                   href={"/#services"}
                   className="flex items-center justify-center"
@@ -208,8 +221,8 @@ const KoaxLandingPage = () => {
                   Explore Services
                   <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
-              </button>
-              <button className="px-8 py-4 text-white font-light tracking-wide hover:text-gray-300 transition-all duration-500 relative overflow-hidden group">
+              </HoverBorderGradient>
+              <button className="px-8 py-2 text-white font-light tracking-wide hover:text-gray-300 transition-all duration-500 relative overflow-hidden group rounded-full">
                 <Link href={"/#contact"}>
                   <span className="relative z-10">Get In Touch</span>
                   <div className="absolute inset-0 bg-white/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
@@ -220,7 +233,7 @@ const KoaxLandingPage = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
           <ChevronDown className="animate-bounce text-gray-600" size={24} />
         </div>
       </section>
@@ -232,11 +245,11 @@ const KoaxLandingPage = () => {
             <h2 className="text-5xl md:text-6xl font-extralight text-white mb-6 tracking-tight">
               About
             </h2>
-            <div className="w-16 h-px bg-gray-700 mx-auto mb-12"></div>
+            <div className="w-16 h-px bg-gray-700 mx-auto mb-8"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8 animate-fade-in-left">
+          <div className=" text-center gap-20 items-center">
+            <div className="space-y-4 animate-fade-in-left">
               <p className="text-lg text-gray-400 leading-relaxed font-light">
                 KOAX is a diversified company operating through multiple
                 specialized subsidiaries, each dedicated to excellence in their
@@ -249,7 +262,7 @@ const KoaxLandingPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 animate-fade-in-right">
+            {/* <div className="grid grid-cols-2 gap-6 animate-fade-in-right">
               {whyChooseUs.map((item, index) => (
                 <div
                   key={index}
@@ -266,15 +279,15 @@ const KoaxLandingPage = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 bg-black relative">
+      <section id="services" className=" bg-black relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20 animate-fade-in-up">
+          {/* <div className="text-center mb-20 animate-fade-in-up">
             <h2 className="text-5xl md:text-6xl font-extralight text-white mb-6 tracking-tight">
               Services
             </h2>
@@ -282,9 +295,10 @@ const KoaxLandingPage = () => {
             <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
               Comprehensive solutions across multiple industries
             </p>
-          </div>
+          </div> */}
+          <Services />
 
-          <div className="grid md:grid-cols-2 gap-12">
+          {/* <div className="grid md:grid-cols-2 gap-12">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -312,12 +326,12 @@ const KoaxLandingPage = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-32 bg-black relative">
+      {/* <section className="py-32 bg-black relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 animate-fade-in-up">
             <h2 className="text-5xl md:text-6xl font-extralight text-white mb-6 tracking-tight">
@@ -348,14 +362,14 @@ const KoaxLandingPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-32 bg-black text-white relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 animate-fade-in-up">
-            <h2 className="text-5xl md:text-6xl font-extralight mb-6 tracking-tight">
-              Contact
+            <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tight">
+              Connect with Us
             </h2>
             <div className="w-16 h-px bg-gray-700 mx-auto mb-12"></div>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
